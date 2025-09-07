@@ -318,7 +318,9 @@ a:hover, a:focus {
 }
 
 .pub-list em {
-    font-style: italic;
+    font-style: normal;      /* remove italic */
+    font-weight: 700;        /* make bold */
+    color: var(--text-light);/* set to your primary light colour (white) */
 }
 
 .pub-list a {
