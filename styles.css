@@ -133,7 +133,7 @@ a:hover, a:focus {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url('images/hero_bg.png');
+    background-image: url('hero_bg.png');
     background-size: cover;
     background-position: center;
     padding-top: 4rem; /* account for nav height */
@@ -214,7 +214,7 @@ a:hover, a:focus {
 
 /* Bio and research section */
 .bio-research-section {
-    background-image: url('images/network.png');
+    background-image: url('network.png');
     background-size: cover;
     background-position: center;
     position: relative;
