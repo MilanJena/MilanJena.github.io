@@ -541,3 +541,9 @@ footer .copyright {
         gap: 0.5rem;
     }
 }
+/* Override journal styling */
+.pub-list em {
+    font-style: normal !important;     /* remove italic */
+    font-weight: 700 !important;       /* make bold */
+    color: var(--text-light) !important; /* set to white */
+}
