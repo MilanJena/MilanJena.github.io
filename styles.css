@@ -1,0 +1,541 @@
+/* Root variables for consistent colour palette */
+:root {
+    --primary-color: #0d47a1; /* rich blue */
+    --accent-color: #00bfa5; /* teal */
+    --bg-dark: #0a0f1f;      /* dark navy background */
+    --bg-card: #0e1430;      /* card background */
+    --text-light: #f5f5f5;   /* primary text colour */
+    --text-muted: #a3a8c0;   /* muted text colour */
+    --highlight: #ffca28;    /* highlight colour for names */
+    --transition: 0.3s ease; /* default transition */
+}
+
+/* Global styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.2;
+    color: var(--text-light);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover, a:focus {
+    color: #80e1d0;
+}
+
+/* Container utility */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+/* Navigation bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(10, 15, 31, 0.95);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    color: var(--text-light);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width var(--transition);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger menu toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('images/hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 4rem; /* account for nav height */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.hero-content .tagline {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .person {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--highlight);
+}
+
+.hero-content .position {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.profile-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.profile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--bg-dark);
+    transition: transform var(--transition);
+}
+
+.profile-icon:hover {
+    transform: translateY(-3px);
+}
+
+/* Specific colours for profile icons */
+.profile-icon.google { background-color: #4285F4; }
+.profile-icon.researchgate { background-color: #14b8a6; }
+.profile-icon.orcid { background-color: #A6CE39; }
+
+/* Bio and research section */
+.bio-research-section {
+    background-image: url('images/network.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.bio-research-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 31, 0.85);
+}
+
+.bio-research-section .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.bio-research-section .bio,
+.bio-research-section .research-interest {
+    flex: 1 1 45%;
+    min-width: 280px;
+}
+
+.bio-research-section .bio p,
+.bio-research-section .research-interest p {
+    color: var(--text-muted);
+}
+
+.bio-research-section ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+}
+
+.bio-research-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* Publications section */
+.publications-section .container {
+    max-width: 900px;
+}
+
+.publications-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.publications-section .pub-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+#pubSearch {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #152044;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+#pubSearch::placeholder {
+    color: var(--text-muted);
+}
+
+.pub-list li {
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1rem 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    line-height: 1.5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color var(--transition);
+}
+
+.pub-list li:hover {
+    background-color: #17204a;
+}
+
+.pub-list strong {
+    color: var(--highlight);
+}
+
+.pub-list em {
+    font-style: italic;
+}
+
+.pub-list a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+/* Experience, education and timeline */
+.timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent-color);
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item .date {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-item h3 {
+    font-size: 1.3rem;
+    margin: 0 0 0.25rem 0;
+    color: var(--text-light);
+}
+
+.timeline-item p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Skills grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.skill-category ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.skill-category ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* Honors grid */
+.honors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.honor-block h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.honor-block ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.honor-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* Teaching section adjustments */
+.teaching-section .container {
+    max-width: 700px;
+    text-align: left;
+}
+
+.teaching-section h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.teaching-section p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Contact section */
+.contact-section .container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.contact-section .email-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color var(--transition);
+}
+
+.contact-section .email-link:hover {
+    background-color: #24d1bd;
+}
+
+/* Footer */
+footer {
+    background-color: #061024;
+    color: var(--text-muted);
+    padding: 2rem 0;
+}
+
+footer .references h3 {
+    margin-bottom: 1rem;
+}
+
+footer .references ol {
+    padding-left: 1.25rem;
+    margin: 0 0 1.5rem 0;
+}
+
+footer .references ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+footer .references ol li a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .bio-research-section .bio,
+    .bio-research-section .research-interest {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: rgba(10, 15, 31, 0.97);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 2rem;
+        gap: 1rem;
+        transform: translateY(-200%);
+        transition: transform var(--transition);
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content .tagline {
+        font-size: 1rem;
+    }
+
+    .profile-icons {
+        gap: 0.5rem;
+    }
+}
